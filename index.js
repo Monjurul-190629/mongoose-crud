@@ -1,5 +1,4 @@
-//// DB_Admin
-//// DoTyCEFeHkYA3XNR
+
 
 
 const express = require('express');
@@ -18,7 +17,10 @@ const port = process.env.PORT || 5000;
 app.use(express.json())
 app.use(cors());
 
-
+//// Now connect mongodb with mongoose
+mongoose.connect(process.env.Mongo_URI)
+    .then(() => console.log("mongodb connect with mongoose"))
+    .catch(err => console.log(err))
 
 /// default
 app.get("/", (req, res) => {
